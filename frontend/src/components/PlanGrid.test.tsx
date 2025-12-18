@@ -26,12 +26,14 @@ const mockPlans: Plan[] = [
 ];
 
 describe('PlanGrid', () => {
-  it('should render all 4 tool columns', () => {
+  it('should render all 4 tool columns on desktop', () => {
     render(<PlanGrid plans={[]} isLoading={false} error={null} />);
     expect(screen.getByText('GitHub Copilot')).toBeInTheDocument();
     expect(screen.getByText('Cursor')).toBeInTheDocument();
     expect(screen.getByText('Claude Code')).toBeInTheDocument();
     expect(screen.getByText('Windsurf')).toBeInTheDocument();
+    const columns = screen.getAllByTestId('tool-column');
+    expect(columns.length).toBe(4);
   });
 
   it('should show loading state', () => {
@@ -51,8 +53,10 @@ describe('PlanGrid', () => {
     expect(screen.getByText('Cursor')).toBeInTheDocument();
   });
 
-  it('should show empty state message when no plans in a column', () => {
+  it('should show empty state placeholder for columns without plans', () => {
     render(<PlanGrid plans={[]} isLoading={false} error={null} />);
+    const emptyColumns = screen.getAllByTestId('empty-column');
+    expect(emptyColumns.length).toBe(4);
     const emptyMessages = screen.getAllByText('No plans available within budget');
     expect(emptyMessages.length).toBe(4);
   });
@@ -61,5 +65,30 @@ describe('PlanGrid', () => {
     render(<PlanGrid plans={mockPlans} isLoading={false} error={null} />);
     expect(screen.getByText('$10.00')).toBeInTheDocument();
     expect(screen.getByText('$20.00')).toBeInTheDocument();
+  });
+
+  it('should maintain column structure when plans change', () => {
+    const { rerender } = render(<PlanGrid plans={mockPlans} isLoading={false} error={null} />);
+    let columns = screen.getAllByTestId('tool-column');
+    expect(columns.length).toBe(4);
+    rerender(<PlanGrid plans={[]} isLoading={false} error={null} />);
+    columns = screen.getAllByTestId('tool-column');
+    expect(columns.length).toBe(4);
+  });
+
+  it('should apply animation classes to plan cards', () => {
+    render(<PlanGrid plans={mockPlans} isLoading={false} error={null} />);
+    const cards = screen.getAllByTestId('plan-card');
+    cards.forEach((card) => {
+      expect(card.parentElement).toHaveClass('gh-fade-in');
+      expect(card.parentElement).toHaveClass('gh-reposition');
+    });
+  });
+
+  it('should use grid layout with 4 columns', () => {
+    render(<PlanGrid plans={[]} isLoading={false} error={null} />);
+    const grid = screen.getByTestId('plan-grid').firstChild;
+    expect(grid).toHaveClass('grid');
+    expect(grid).toHaveClass('xl:grid-cols-4');
   });
 });

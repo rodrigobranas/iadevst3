@@ -36,38 +36,60 @@ const enterprisePlan: Plan = {
 };
 
 describe('PlanCard', () => {
-  it('should render plan name', () => {
+  it('should render plan name in tier badge', () => {
     render(<PlanCard plan={mockPlan} />);
-    expect(screen.getByText('Pro')).toBeInTheDocument();
+    const tierBadge = screen.getByTestId('tier-badge');
+    expect(tierBadge).toHaveTextContent('Pro');
   });
 
-  it('should render plan price formatted as currency', () => {
+  it('should apply correct tier color class based on plan name', () => {
     render(<PlanCard plan={mockPlan} />);
-    expect(screen.getByText('$20.00')).toBeInTheDocument();
+    const tierBadge = screen.getByTestId('tier-badge');
+    expect(tierBadge).toHaveClass('bg-blue-500/10');
+    expect(tierBadge).toHaveClass('text-blue-600');
+  });
+
+  it('should apply green tier color for free plans', () => {
+    render(<PlanCard plan={freePlan} />);
+    const tierBadge = screen.getByTestId('tier-badge');
+    expect(tierBadge).toHaveClass('bg-green-500/10');
+    expect(tierBadge).toHaveClass('text-green-600');
+  });
+
+  it('should render plan price formatted as currency with monospace font', () => {
+    render(<PlanCard plan={mockPlan} />);
+    const priceElement = screen.getByTestId('plan-price');
+    expect(priceElement).toHaveTextContent('$20.00');
+    expect(priceElement).toHaveClass('font-mono');
   });
 
   it('should render "Free" for zero price plans', () => {
     render(<PlanCard plan={freePlan} />);
-    const freeTexts = screen.getAllByText('Free');
-    expect(freeTexts.length).toBeGreaterThanOrEqual(1);
+    const priceElement = screen.getByTestId('plan-price');
+    expect(priceElement).toHaveTextContent('Free');
   });
 
-  it('should render plan models', () => {
+  it('should render plan models with monospace font', () => {
     render(<PlanCard plan={mockPlan} />);
     expect(screen.getByText('GPT-4o')).toBeInTheDocument();
     expect(screen.getByText('Claude 3.5')).toBeInTheDocument();
+    expect(screen.getByText('GPT-4o')).toHaveClass('font-mono');
   });
 
-  it('should render plan limits', () => {
+  it('should render plan limits with monospace font', () => {
     render(<PlanCard plan={mockPlan} />);
-    expect(screen.getByText('500 requests/month')).toBeInTheDocument();
+    const limitsElement = screen.getByText('500 requests/month');
+    expect(limitsElement).toBeInTheDocument();
+    expect(limitsElement).toHaveClass('font-mono');
   });
 
-  it('should render up to 3 features', () => {
+  it('should render up to 3 features with checkmark icons', () => {
     render(<PlanCard plan={mockPlan} />);
-    expect(screen.getByText('• Code completion')).toBeInTheDocument();
-    expect(screen.getByText('• Chat support')).toBeInTheDocument();
-    expect(screen.getByText('• Multi-file editing')).toBeInTheDocument();
+    expect(screen.getByText('Code completion')).toBeInTheDocument();
+    expect(screen.getByText('Chat support')).toBeInTheDocument();
+    expect(screen.getByText('Multi-file editing')).toBeInTheDocument();
+    const checkmarks = screen.getAllByText('✓');
+    expect(checkmarks.length).toBe(3);
   });
 
   it('should show "+N more" when there are more than 3 features', () => {
@@ -77,15 +99,16 @@ describe('PlanCard', () => {
 
   it('should display Individual badge for individual plans', () => {
     render(<PlanCard plan={mockPlan} />);
-    const badge = screen.getByText('Individual');
-    expect(badge).toHaveClass('bg-blue-100');
+    const badge = screen.getByTestId('plan-type');
+    expect(badge).toHaveTextContent('Individual');
+    expect(badge).toHaveClass('bg-blue-500/10');
   });
 
   it('should display Enterprise badge for enterprise plans', () => {
     render(<PlanCard plan={enterprisePlan} />);
-    const badges = screen.getAllByText('Enterprise');
-    const typeBadge = badges.find(el => el.classList.contains('bg-purple-100'));
-    expect(typeBadge).toBeInTheDocument();
+    const badge = screen.getByTestId('plan-type');
+    expect(badge).toHaveTextContent('Enterprise');
+    expect(badge).toHaveClass('bg-purple-500/10');
   });
 
   it('should show "+N" when there are more than 3 models', () => {
@@ -95,5 +118,18 @@ describe('PlanCard', () => {
     };
     render(<PlanCard plan={planWithManyModels} />);
     expect(screen.getByText('+2')).toBeInTheDocument();
+  });
+
+  it('should apply hover state classes', () => {
+    render(<PlanCard plan={mockPlan} />);
+    const card = screen.getByTestId('plan-card');
+    expect(card).toHaveClass('gh-card-hover');
+  });
+
+  it('should render badge with correct styling', () => {
+    render(<PlanCard plan={mockPlan} />);
+    const tierBadge = screen.getByTestId('tier-badge');
+    expect(tierBadge).toHaveClass('rounded-md');
+    expect(tierBadge).toHaveClass('border');
   });
 });

@@ -32,6 +32,7 @@ export function BudgetSlider({ value, onChange }: BudgetSliderProps) {
         max={MAX_BUDGET}
         step={STEP}
         aria-label="Budget slider"
+        data-testid="budget-slider"
       />
       <div className="flex justify-between text-xs text-muted-foreground">
         <span>{formatCurrency(MIN_BUDGET)}</span>

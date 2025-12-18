@@ -25,6 +25,7 @@ export function PlanTypeFilter({ value, onChange }: PlanTypeFilterProps) {
               ? 'bg-background text-foreground shadow-sm'
               : 'text-muted-foreground hover:text-foreground'
           )}
+          data-testid={`filter-${option.value}`}
         >
           {option.label}
         </button>

@@ -14,6 +14,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -48,11 +51,25 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        gh: {
+          bg: "var(--gh-bg)",
+          "bg-secondary": "var(--gh-bg-secondary)",
+          border: "var(--gh-border)",
+          "text-primary": "var(--gh-text-primary)",
+          "text-secondary": "var(--gh-text-secondary)",
+        },
+        tier: {
+          free: "#238636",
+          pro: "#1f6feb",
+          business: "#da3633",
+          enterprise: "#8957e5",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        gh: "6px",
       },
       keyframes: {
         "accordion-down": {
