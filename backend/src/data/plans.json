@@ -1,0 +1,202 @@
+[
+  {
+    "id": "github-copilot-free",
+    "tool": "github-copilot",
+    "name": "Free",
+    "price": 0,
+    "type": "individual",
+    "models": ["GPT-4o"],
+    "limits": "2000 suggestions/month, 50 chat/month, 50 premium requests/month",
+    "features": ["Code suggestions", "Limited Copilot Chat", "VS Code and JetBrains support"]
+  },
+  {
+    "id": "github-copilot-pro",
+    "tool": "github-copilot",
+    "name": "Pro",
+    "price": 10,
+    "type": "individual",
+    "models": ["GPT-4o", "Claude 3.5 Sonnet"],
+    "limits": "Unlimited suggestions, unlimited chat, 300 premium requests/month",
+    "features": ["Unlimited code suggestions", "Unlimited Copilot Chat", "IDE and CLI integration", "Multi-file editing"]
+  },
+  {
+    "id": "github-copilot-pro-plus",
+    "tool": "github-copilot",
+    "name": "Pro+",
+    "price": 39,
+    "type": "individual",
+    "models": ["GPT-4o", "Claude 3.5 Sonnet", "Gemini 2.0", "o1"],
+    "limits": "Unlimited suggestions, unlimited chat, 1500 premium requests/month",
+    "features": ["Full access to all models", "Unlimited code suggestions", "Unlimited Copilot Chat", "Priority access"]
+  },
+  {
+    "id": "github-copilot-business",
+    "tool": "github-copilot",
+    "name": "Business",
+    "price": 19,
+    "type": "enterprise",
+    "models": ["GPT-4o", "Claude 3.5 Sonnet"],
+    "limits": "300 premium requests/user/month",
+    "features": ["Organization-wide policy controls", "Admin dashboard", "IP indemnity", "Data excluded from training"]
+  },
+  {
+    "id": "github-copilot-enterprise",
+    "tool": "github-copilot",
+    "name": "Enterprise",
+    "price": 39,
+    "type": "enterprise",
+    "models": ["GPT-4o", "Claude 3.5 Sonnet", "Gemini 2.0"],
+    "limits": "1000 premium requests/user/month",
+    "features": ["SAML SSO", "Audit logs", "Knowledge bases", "PR summaries", "Copilot Chat on GitHub.com"]
+  },
+  {
+    "id": "cursor-free",
+    "tool": "cursor",
+    "name": "Hobby",
+    "price": 0,
+    "type": "individual",
+    "models": ["cursor-small"],
+    "limits": "Limited completions, limited slow requests/month",
+    "features": ["Basic AI completions", "Cursor editor access", "Community support"]
+  },
+  {
+    "id": "cursor-pro",
+    "tool": "cursor",
+    "name": "Pro",
+    "price": 20,
+    "type": "individual",
+    "models": ["GPT-4", "GPT-4o", "Claude 3.5 Sonnet"],
+    "limits": "$20 usage credits/month for frontier models",
+    "features": ["Unlimited Tab completions", "Auto mode", "$20 monthly credit pool", "All premium models"]
+  },
+  {
+    "id": "cursor-pro-plus",
+    "tool": "cursor",
+    "name": "Pro+",
+    "price": 60,
+    "type": "individual",
+    "models": ["GPT-4", "GPT-4o", "Claude 3.5 Sonnet", "GPT-4.5"],
+    "limits": "~3x Pro credits/month",
+    "features": ["Everything in Pro", "3x monthly credits", "Priority support", "Power user features"]
+  },
+  {
+    "id": "cursor-ultra",
+    "tool": "cursor",
+    "name": "Ultra",
+    "price": 200,
+    "type": "individual",
+    "models": ["GPT-4", "GPT-4o", "Claude 3.5 Sonnet", "GPT-4.5", "o1"],
+    "limits": "~20x Pro credits/month",
+    "features": ["Everything in Pro+", "20x monthly credits", "Early access to features", "Priority access to new models"]
+  },
+  {
+    "id": "cursor-teams",
+    "tool": "cursor",
+    "name": "Teams",
+    "price": 40,
+    "type": "enterprise",
+    "models": ["GPT-4", "GPT-4o", "Claude 3.5 Sonnet"],
+    "limits": "500 credits/user/month",
+    "features": ["Centralized billing", "Team management", "Admin dashboard", "Shared settings"]
+  },
+  {
+    "id": "claude-code-free",
+    "tool": "claude-code",
+    "name": "Free",
+    "price": 0,
+    "type": "individual",
+    "models": ["Claude 3.5 Sonnet"],
+    "limits": "Limited messages per 5-hour window",
+    "features": ["Basic Claude Code access", "Web interface", "Lower priority during peak"]
+  },
+  {
+    "id": "claude-code-pro",
+    "tool": "claude-code",
+    "name": "Pro",
+    "price": 20,
+    "type": "individual",
+    "models": ["Claude 3.5 Sonnet", "Claude 3 Opus"],
+    "limits": "5x Free usage (~45 messages/5 hours)",
+    "features": ["Higher rate limits", "Priority access", "Projects and Artifacts", "Early feature access"]
+  },
+  {
+    "id": "claude-code-max-5x",
+    "tool": "claude-code",
+    "name": "Max 5x",
+    "price": 100,
+    "type": "individual",
+    "models": ["Claude 3.5 Sonnet", "Claude 3 Opus", "Claude 4"],
+    "limits": "5x Pro usage (~25x Free per 5-hour window)",
+    "features": ["Heavy coding workloads", "Larger repos support", "Higher performance", "Priority above Pro"]
+  },
+  {
+    "id": "claude-code-max-20x",
+    "tool": "claude-code",
+    "name": "Max 20x",
+    "price": 200,
+    "type": "individual",
+    "models": ["Claude 3.5 Sonnet", "Claude 3 Opus", "Claude 4", "All models"],
+    "limits": "20x Pro usage (highest consumer limits)",
+    "features": ["Intensive development", "Large codebases", "All models access", "Earliest feature access"]
+  },
+  {
+    "id": "claude-code-team",
+    "tool": "claude-code",
+    "name": "Team",
+    "price": 30,
+    "type": "enterprise",
+    "models": ["Claude 3.5 Sonnet", "Claude 3 Opus"],
+    "limits": "Shared team quota pool (min 5 seats)",
+    "features": ["Collaborative workspaces", "Admin controls", "SSO management", "Slack/Teams integration"]
+  },
+  {
+    "id": "windsurf-free",
+    "tool": "windsurf",
+    "name": "Free",
+    "price": 0,
+    "type": "individual",
+    "models": ["GPT-4o", "Claude 3.5 Sonnet", "Gemini"],
+    "limits": "25 prompt credits/month",
+    "features": ["Access to leading models", "Windsurf IDE", "1 app deployment/day", "Zero-data-retention mode"]
+  },
+  {
+    "id": "windsurf-pro",
+    "tool": "windsurf",
+    "name": "Pro",
+    "price": 15,
+    "type": "individual",
+    "models": ["GPT-4o", "Claude 3.5 Sonnet", "Gemini", "SWE-1"],
+    "limits": "500 prompt credits/month",
+    "features": ["Full Windsurf IDE", "Priority model access", "5 app deployments/day", "Add-on credits available ($10/250)"]
+  },
+  {
+    "id": "windsurf-teams",
+    "tool": "windsurf",
+    "name": "Teams",
+    "price": 30,
+    "type": "enterprise",
+    "models": ["GPT-4o", "Claude 3.5 Sonnet", "Gemini", "SWE-1"],
+    "limits": "500 prompt credits/user/month",
+    "features": ["Centralized billing", "Admin dashboard", "Windsurf Reviews", "Priority support", "SSO add-on ($10/user)"]
+  },
+  {
+    "id": "windsurf-enterprise",
+    "tool": "windsurf",
+    "name": "Enterprise",
+    "price": 60,
+    "type": "enterprise",
+    "models": ["GPT-4o", "Claude 3.5 Sonnet", "Gemini", "SWE-1", "All models"],
+    "limits": "1000 prompt credits/user/month",
+    "features": ["SSO & RBAC included", "Hybrid deployment", "Volume discounts (200+ users)", "Dedicated account management"]
+  },
+  {
+    "id": "windsurf-business",
+    "tool": "windsurf",
+    "name": "Business",
+    "price": 45,
+    "type": "enterprise",
+    "models": ["GPT-4o", "Claude 3.5 Sonnet", "Gemini", "SWE-1"],
+    "limits": "750 prompt credits/user/month",
+    "features": ["Advanced team controls", "Priority support", "Usage analytics", "API access", "Custom integrations"]
+  }
+]

@@ -1,4 +1,4 @@
-# Tarefa X.0: [Título da Tarefa Principal]
+# Tarefa X.0: [Título da Tarefa]
 
 <critical>Ler os arquivos de prd.md e techspec.md desta pasta, se você não ler esses arquivos sua tarefa será invalidada</critical>
 
@@ -23,6 +23,13 @@
 
 - [Resultados mensuráveis]
 - [Requisitos de qualidade]
+
+## Testes da Tarefa
+
+- [ ] Testes de unidade
+- [ ] Testes de integração
+
+<critical>SEMPRE CRIE E EXECUTE OS TESTES DA TAREFA ANTES DE CONSIDERÁ-LA FINALIZADA</critical>
 
 ## Arquivos relevantes
 - [Arquivos relevantes desta tarefa]

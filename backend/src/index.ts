@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import plansRoutes from './routes/plans';
 
 dotenv.config();
 
@@ -11,14 +12,16 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/health', (req: Request, res: Response) => {
+app.get('/health', (_req: Request, res: Response) => {
   res.json({ 
     status: 'healthy',
     timestamp: new Date().toISOString()
   });
 });
 
-app.use((err: Error, req: Request, res: Response, next: any) => {
+app.use('/plans', plansRoutes);
+
+app.use((err: Error, _req: Request, res: Response, _next: any) => {
   console.error(err.stack);
   res.status(500).json({ 
     error: 'Something went wrong!',

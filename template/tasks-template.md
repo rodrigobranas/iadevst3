@@ -2,6 +2,6 @@
 
 ## Tarefas
 
-- [ ] 1.0 Título da Tarefa Principal
-- [ ] 2.0 Título da Tarefa Principal
-- [ ] 3.0 Título da Tarefa Principal
+- [ ] 1.0 Título da Tarefa
+- [ ] 2.0 Título da Tarefa
+- [ ] 3.0 Título da Tarefa
